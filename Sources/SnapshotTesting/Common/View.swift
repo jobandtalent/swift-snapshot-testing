@@ -791,9 +791,9 @@ private func add(traits: UITraitCollection, viewController: UIViewController, to
   rootViewController.setOverrideTraitCollection(traits, forChild: viewController)
   viewController.didMove(toParent: rootViewController)
 
-  window.rootViewController = rootViewController
 
   rootViewController.beginAppearanceTransition(true, animated: false)
+  window.rootViewController = rootViewController
   rootViewController.endAppearanceTransition()
 
   rootViewController.view.setNeedsLayout()
@@ -804,8 +804,8 @@ private func add(traits: UITraitCollection, viewController: UIViewController, to
 
   return {
     rootViewController.beginAppearanceTransition(false, animated: false)
-    rootViewController.endAppearanceTransition()
     window.rootViewController = nil
+    rootViewController.endAppearanceTransition()
   }
 }
 
